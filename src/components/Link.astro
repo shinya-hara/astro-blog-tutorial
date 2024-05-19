@@ -1,0 +1,8 @@
+---
+const { href, ...props } = Astro.props;
+
+const baseUrl = import.meta.env.BASE_URL;
+const normalizedHref = href.startsWith("/") ? `${baseUrl}${href}` : href;
+---
+
+<a href={normalizedHref} {...props}><slot /></a>
